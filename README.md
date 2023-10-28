@@ -62,9 +62,9 @@ The interface should automatically open. If it does not, navigate to [http://loc
 
 ## Deployments
 We deployed the L1 contracts to Goerli
-- [PortalERC20](https://goerli.etherscan.io/address/0xEB9B519e1c902B9921A6d1d8aE69B90Ac3058E5F)
-- [TokenPortal](https://goerli.etherscan.io/address/0xB9F8f615377247B8499f0e3A905fE160e249d8b4)
-- [UniswapPortal](https://goerli.etherscan.io/address/0x902d15A7b5266576387c6E27B940b7828D3D61E4)
+- [PortalERC20](https://goerli.etherscan.io/address/0x9CD811F498029D8760e6dA4A31A4B08b77154A20)
+- [TokenPortal](https://goerli.etherscan.io/address/0x6DBD391Ff3A82079E4188c517452a8d3146b7Abf)
+- [UniswapPortal](https://goerli.etherscan.io/address/0x5E60F6BFa0e1B52b1bf270cd41b151642Fc4Da65)
 
 ## Team
 
