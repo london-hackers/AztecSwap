@@ -1,6 +1,6 @@
-# 🧛‍♂️ AztecWorld
+# 🧛‍♂️ AztecSwap
 
-AztecWorld allows someone with funds on Aztec (L2) to to swap using L1 Uniswap and then get the swapped assets back to Aztec.
+AztecSwap allows someone with funds on Aztec (L2) to to swap using L1 Uniswap and then get the swapped assets back to Aztec.
 
 ⚙️ Built using NextJS and Noir.
 
@@ -16,7 +16,7 @@ The flow of the swapping dapp is:
 
 ## Quickstart
 
-To get started with AztecWorld, follow the steps below:
+To get started with AztecSwap, follow the steps below:
 
 1. Clone this repo & install dependencies using yarn install
 
