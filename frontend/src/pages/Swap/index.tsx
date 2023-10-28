@@ -68,6 +68,7 @@ import { useScreenSize } from '../../hooks/useScreenSize'
 import { useIsDarkMode } from '../../theme/components/ThemeToggle'
 import { OutputTaxTooltipBody } from './TaxTooltipBody'
 import { UniswapXOptIn } from './UniswapXOptIn'
+import { Contract } from '@aztec/aztec.js'
 
 export const ArrowContainer = styled.div`
   display: inline-flex;
