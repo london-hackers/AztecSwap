@@ -1,0 +1,8 @@
+.foundry
+cache
+Dockerfile
+README.md
+.github
+lib/
+out/
+node_modules/
