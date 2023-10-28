@@ -1,6 +1,6 @@
 # 🧛‍♂️ AztecWorld
 
-AztecWorld allows users to swap their funds on Aztec (L2) privately on Uniswap (L1) using zk-proofs.
+AztecWorld allows someone with funds on Aztec (L2) to to swap using L1 Uniswap and then get the swapped assets back to Aztec.
 
 ⚙️ Built using NextJS and Noir.
 
