@@ -9,7 +9,6 @@ import { useIsNftPage } from 'hooks/useIsNftPage'
 import { useIsPoolsPage } from 'hooks/useIsPoolsPage'
 import { Box } from 'nft/components/Box'
 import { Row } from 'nft/components/Flex'
-import { UniIcon } from 'nft/components/icons'
 import { useProfilePageState } from 'nft/hooks'
 import { ProfilePageStateType } from 'nft/types'
 import { ReactNode, useCallback } from 'react'
@@ -20,16 +19,21 @@ import { useIsNavSearchInputVisible } from '../../nft/hooks/useIsNavSearchInputV
 import { Bag } from './Bag'
 import Blur from './Blur'
 import { ChainSelector } from './ChainSelector'
-import { MenuDropdown } from './MenuDropdown'
+
 import { SearchBar } from './SearchBar'
 import * as styles from './style.css'
+import blackLogo from './final_logo.png'
+import whiteLogo from './white-logo.jpg'
+import { useIsDarkMode } from './../../theme/components/ThemeToggle'
 
 const Nav = styled.nav`
-  padding: ${({ theme }) => `${theme.navVerticalPad}px 12px`};
+  padding: ${({ theme }) => `${theme.shadow1}px 12px`};
   width: 100%;
   height: ${({ theme }) => theme.navHeight}px;
   z-index: 2;
 `
+
+var logo = whiteLogo 
 
 interface MenuItemProps {
   href: string
@@ -103,13 +107,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
         <Box display="flex" height="full" flexWrap="nowrap">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
-              <UniIcon
-                width="48"
-                height="48"
-                data-testid="uniswap-logo"
-                className={styles.logo}
-                onClick={handleUniIconClick}
-              />
+              <img src={logo}  height="50px"></img>
             </Box>
             {!isNftPage && (
               <Box display={{ sm: 'flex', lg: 'none' }}>
