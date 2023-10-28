@@ -36,22 +36,20 @@ aztec-cli compile --typescript ../../src/test/fixtures uniswap
 
 This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
 
-4. Setup the fork
-
-Since we want to use L1 Uniswap, we need the sandbox to execute against a fork of L1. This has be easily done: in your terminal add the following variables:
-
-```
-export FORK_BLOCK_NUMBER=17514288
-export FORK_URL=<YOUR_RPC_URL e.g. https://mainnet.infura.io/v3/API_KEY>
-```
-
-Now run the sandbox:
+4. Run the sandbox:
 
 ```
 /bin/sh -c "$(curl -fsSL 'https://sandbox.aztec.network')"
 ```
 
-4. Setup the frontend
+5. Deploy the Aztec.nr contracts:
+
+```
+cd contracts/uniswap_contracts/uniswap/target
+aztec-cli deploy Uniswap.json
+```
+
+6. Setup the frontend
 
 ```
 cd frontend
