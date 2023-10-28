@@ -23,7 +23,7 @@ import {
     parseEther,
   } from "viem";
   import { foundry } from "viem/chains";
-  import { CrossChainTestHarness } from "./shared/cross_chain_test_harness.js";
+  import { CrossChainTestHarness } from "./fixtures/cross_chain_test_harness.js";
   import { UniswapContract } from "./fixtures/Uniswap.js";
   import { beforeAll, expect, jest } from "@jest/globals";
   import {

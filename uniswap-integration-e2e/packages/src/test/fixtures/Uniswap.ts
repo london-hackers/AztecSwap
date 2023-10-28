@@ -21,7 +21,7 @@ import {
   PublicKey,
   Wallet,
 } from '@aztec/aztec.js';
-import UniswapContractArtifactJson from '../../../aztec-contracts/uniswap/target/Uniswap.json' assert { type: 'json' };
+import UniswapContractArtifactJson from '../../../aztec-contracts/uniswap/target/uniswap-Uniswap.json' assert { type: 'json' };
 export const UniswapContractArtifact = UniswapContractArtifactJson as ContractArtifact;
 
 /**

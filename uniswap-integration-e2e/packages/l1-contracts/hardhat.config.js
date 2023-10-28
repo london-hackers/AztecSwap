@@ -7,6 +7,7 @@ module.exports = {
   networks: {
     hardhat: {
     },
+
     goerli: {
       url: "https://goerli.infura.io/v3/",
       accounts: [""]
