@@ -10,6 +10,10 @@ The flow of the swapping dapp is:
 - ♻️ **Swap**: On L1, the user gets their input tokens, consumes the swap message, and executes the swap
 - 💰 **Deposit**: The user deposits the “output” tokens to the output token portal so it can be deposited into L2
 
+## Diagram
+
+![diagram](https://docs.aztec.network/assets/ideal-img/uniswap_flow.38b8805.1030.png)
+
 ## Quickstart
 
 To get started with AztecWorld, follow the steps below:
