@@ -68,9 +68,22 @@ import { useScreenSize } from '../../hooks/useScreenSize'
 import { useIsDarkMode } from '../../theme/components/ThemeToggle'
 import { OutputTaxTooltipBody } from './TaxTooltipBody'
 import { UniswapXOptIn } from './UniswapXOptIn'
-
-import { Contract } from '@aztec/aztec.js'
 import Toggle from 'components/Toggle'
+import {
+  Contract,
+  Fr,
+  NotePreimage,
+  PXE,
+  computeMessageSecretHash,
+  createDebugLogger,
+  createPXEClient,
+  getSandboxAccountsWallets,
+  getSchnorrAccount,
+  waitForSandbox,
+} from '@aztec/aztec.js';
+import { format } from 'util';
+
+const { PXE_URL = 'http://localhost:8080' } = process.env;
 
 export const ArrowContainer = styled.div`
   display: inline-flex;
@@ -151,6 +164,7 @@ export default function SwapPage({ className }: { className?: string }) {
   const location = useLocation()
 
   const supportedChainId = asSupportedChain(connectedChainId)
+
 
   return (
     <Trace page={InterfacePageName.SWAP_PAGE} shouldLogImpression>
@@ -453,7 +467,8 @@ export function Swap({
     trade,
     swapFiatValues,
     allowedSlippage,
-    allowance.state === AllowanceState.ALLOWED ? allowance.permitSignature : undefined
+    allowance.state === AllowanceState.ALLOWED ? allowance.permitSignature : undefined,
+    false
   )
 
   const handleContinueToReview = useCallback(() => {
