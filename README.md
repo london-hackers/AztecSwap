@@ -60,6 +60,12 @@ yarn start
 
 The interface should automatically open. If it does not, navigate to [http://localhost:3000].
 
+## Deployments
+We deployed the L1 contracts to Goerli
+- [PortalERC20](https://goerli.etherscan.io/address/0xEB9B519e1c902B9921A6d1d8aE69B90Ac3058E5F)
+- [TokenPortal](https://goerli.etherscan.io/address/0xB9F8f615377247B8499f0e3A905fE160e249d8b4)
+- [UniswapPortal](https://goerli.etherscan.io/address/0x902d15A7b5266576387c6E27B940b7828D3D61E4)
+
 ## Team
 
 This project was build at ETH London 2023 by:
