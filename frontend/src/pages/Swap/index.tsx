@@ -68,7 +68,9 @@ import { useScreenSize } from '../../hooks/useScreenSize'
 import { useIsDarkMode } from '../../theme/components/ThemeToggle'
 import { OutputTaxTooltipBody } from './TaxTooltipBody'
 import { UniswapXOptIn } from './UniswapXOptIn'
+
 import { Contract } from '@aztec/aztec.js'
+import Toggle from 'components/Toggle'
 
 export const ArrowContainer = styled.div`
   display: inline-flex;
@@ -602,6 +604,20 @@ export function Swap({
     !showWrap && userHasSpecifiedInputOutput && (trade || routeIsLoading || routeIsSyncing)
   )
 
+
+  const [hideCancelled, setHideCancelled] = useState(true)
+  const [swapValue, setSwapValue] = useState("Swap")
+  useEffect(() => {
+    if (hideCancelled == true){
+      setSwapValue("Swap Privately")
+    }
+    else {
+      setSwapValue("Swap")
+    }
+
+  }, [])
+  
+
   const inputCurrency = currencies[Field.INPUT] ?? undefined
   const switchChain = useSwitchChain()
   const switchingChain = useAppSelector((state) => state.wallets.switchingChain)
@@ -805,6 +821,29 @@ export function Swap({
               </ThemedText.DeprecatedMain>
             </GrayCard>
           ) : (
+            <div>
+              <GrayCard style={{ textAlign: 'center' }}>
+                <AutoRow gap="xl">
+                  <AutoColumn justify="flex-start"> 
+                    <ThemedText.DeprecatedMain mb="4px">
+                    <Trans>Private Swap</Trans>
+                    </ThemedText.DeprecatedMain>
+                  </AutoColumn>
+                  <AutoColumn justify="flex-end">
+                    <Toggle
+                          isActive={!hideCancelled}
+                          toggle={() => setHideCancelled((hideCancelled) => !hideCancelled)}
+                        />
+                  </AutoColumn>
+
+                </AutoRow>
+               
+             
+            
+            </GrayCard>
+              
+             
+
             <TraceEvent
               events={[BrowserEvent.onClick]}
               name={SharedEventName.ELEMENT_CLICKED}
@@ -823,7 +862,8 @@ export function Swap({
                   {swapInputError ? (
                     swapInputError
                   ) : routeIsSyncing || routeIsLoading ? (
-                    <Trans>Swap</Trans>
+                    <Trans>{swapValue}</Trans>
+
                   ) : priceImpactSeverity > 2 ? (
                     <Trans>Swap anyway</Trans>
                   ) : (
@@ -832,6 +872,7 @@ export function Swap({
                 </Text>
               </ButtonError>
             </TraceEvent>
+            </div>
           )}
         </div>
       </AutoColumn>
