@@ -68,6 +68,6 @@ We deployed the L1 contracts to Goerli
 
 This project was build at ETH London 2023 by:
 
-- [?](https://x.com/)
+- [Labdhi Jain](https://www.linkedin.com/in/labdhi-jain/)
 - [?](https://x.com/)
 - [arjanjohan](https://x.com/arjanjohan/)
