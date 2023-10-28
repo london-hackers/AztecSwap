@@ -6,7 +6,7 @@ AztecWorld allows someone with funds on Aztec (L2) to to swap using L1 Uniswap a
 
 The flow of the swapping dapp is:
 - 🔥 **Withdraw**: The user withdraws their “input” assets to L1 (i.e. burn them on L2 and create a L2 to L1 message to withdraw)
-- 📩 **Message**: We create an L2 → L1 message to swap on L1
+- 📩 **Message**: An L2 → L1 message to swap on L1 is created
 - ♻️ **Swap**: On L1, the user gets their input tokens, consumes the swap message, and executes the swap
 - 💰 **Deposit**: The user deposits the “output” tokens to the output token portal so it can be deposited into L2
 
