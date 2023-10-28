@@ -1,6 +1,6 @@
-# ⬛ AztecSwap
+# 🧛‍♂️ AztecWorld
 
-🧛‍♂️ AztecSwap allows users to swap their funds on Aztec (L2) privately on Uniswap (L1) using zk-proofs.
+AztecWorld allows users to swap their funds on Aztec (L2) privately on Uniswap (L1) using zk-proofs.
 
 ⚙️ Built using NextJS and Noir.
 
@@ -12,7 +12,7 @@ The flow of the swapping dapp is:
 
 ## Quickstart
 
-To get started with AztecSwap, follow the steps below:
+To get started with AztecWorld, follow the steps below:
 
 1. Clone this repo & install dependencies using yarn install
 
