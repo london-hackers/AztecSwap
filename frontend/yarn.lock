@@ -7984,6 +7984,15 @@ axobject-query@^3.1.1:
   dependencies:
     deep-equal "^2.0.5"
 
+aztec@^0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/aztec/-/aztec-0.3.9.tgz#1091c1d625606de1fc1d1ab3998d18f1a2ed7f55"
+  integrity sha512-8OBLiu3Z7/ul3f+g/ZgMsrcU773wWtXn3limvoWs7OkFwEtvO0X1OFW0llWgz7t2oDIkJu1YWB87R8yg4lv+Bw==
+  dependencies:
+    colors "^1.1.2"
+    lodash "^4.17.4"
+    xml "^1.0.1"
+
 babel-jest@^27.4.2, babel-jest@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-27.5.1.tgz#a1bf8d61928edfefd21da27eb86a695bfd691444"
@@ -9274,6 +9283,11 @@ colors@1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/colors/-/colors-1.0.3.tgz"
   integrity sha1-BDP0TYCWgP3rYO0mDxsMJi6CpAs=
+
+colors@^1.1.2:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
+  integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
 
 combined-stream@^1.0.6, combined-stream@^1.0.8, combined-stream@~1.0.6:
   version "1.0.8"
@@ -15571,7 +15585,7 @@ lodash.zip@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash.zip/-/lodash.zip-4.2.0.tgz#ec6662e4896408ed4ab6c542a3990b72cc080020"
   integrity sha512-C7IOaBBK/0gMORRBd8OETNx3kmOkgIWIPvyDpZSCTwUrpYmgZwJkjZeOD8ww4xbOUOs4/attY+pciKvadNfFbg==
 
-lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.7.0, lodash@~4.17.0:
+lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0, lodash@~4.17.0:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -21822,6 +21836,11 @@ xml2js@^0.6.2:
   dependencies:
     sax ">=0.6.0"
     xmlbuilder "~11.0.0"
+
+xml@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
+  integrity sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==
 
 xmlbuilder@~11.0.0:
   version "11.0.1"

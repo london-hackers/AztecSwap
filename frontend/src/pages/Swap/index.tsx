@@ -68,9 +68,8 @@ import { useScreenSize } from '../../hooks/useScreenSize'
 import { useIsDarkMode } from '../../theme/components/ThemeToggle'
 import { OutputTaxTooltipBody } from './TaxTooltipBody'
 import { UniswapXOptIn } from './UniswapXOptIn'
-
-import { Contract } from '@aztec/aztec.js'
 import Toggle from 'components/Toggle'
+
 
 export const ArrowContainer = styled.div`
   display: inline-flex;
@@ -607,15 +606,7 @@ export function Swap({
 
   const [hideCancelled, setHideCancelled] = useState(true)
   const [swapValue, setSwapValue] = useState("Swap")
-  useEffect(() => {
-    if (hideCancelled == true){
-      setSwapValue("Swap Privately")
-    }
-    else {
-      setSwapValue("Swap")
-    }
-
-  }, [])
+  
   
 
   const inputCurrency = currencies[Field.INPUT] ?? undefined
@@ -831,8 +822,18 @@ export function Swap({
                   </AutoColumn>
                   <AutoColumn justify="flex-end">
                     <Toggle
+                      id="setPrivate"
                           isActive={!hideCancelled}
-                          toggle={() => setHideCancelled((hideCancelled) => !hideCancelled)}
+                          toggle={() => {
+                            setHideCancelled((hideCancelled) => !hideCancelled)
+                            if (hideCancelled == true){
+                              setSwapValue("Swap Privately")
+                            }
+                            else {
+                              setSwapValue("Swap")
+                            }
+                            
+                          }}
                         />
                   </AutoColumn>
 
@@ -861,10 +862,11 @@ export function Swap({
                 <Text fontSize={20}>
                   {swapInputError ? (
                     swapInputError
-                  ) : routeIsSyncing || routeIsLoading ? (
+                  )  : routeIsSyncing || routeIsLoading ? (
                     <Trans>{swapValue}</Trans>
 
-                  ) : priceImpactSeverity > 2 ? (
+                  ) 
+                  : priceImpactSeverity > 2 ? (
                     <Trans>Swap anyway</Trans>
                   ) : (
                     <Trans>Swap</Trans>
