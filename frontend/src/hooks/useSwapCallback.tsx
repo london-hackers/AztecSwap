@@ -20,6 +20,24 @@ import { currencyId } from '../utils/currencyId'
 import useTransactionDeadline from './useTransactionDeadline'
 import { useUniswapXSwapCallback } from './useUniswapXSwapCallback'
 import { useUniversalRouterSwapCallback } from './useUniversalRouter'
+import {
+  Contract,
+  Fr,
+  NotePreimage,
+  PXE,
+  computeMessageSecretHash,
+  createDebugLogger,
+  createPXEClient,
+  getSandboxAccountsWallets,
+  getSchnorrAccount,
+  waitForSandbox,
+} from '@aztec/aztec.js';
+import artifact from "../artifacts/Uniswap.json";
+
+
+import { format } from 'util';
+const contractAddress = '0x20349890f543228a00a5e0e08084dba0de4ea05268977b6ef9ff1d210b1311ad';
+const { PXE_URL = 'http://localhost:8080' } = process.env;
 
 export type SwapResult = Awaited<ReturnType<ReturnType<typeof useSwapCallback>>>
 
@@ -42,13 +60,16 @@ export function useSwapCallback(
   trade: InterfaceTrade | undefined, // trade to execute, required
   fiatValues: { amountIn?: number; amountOut?: number; feeUsd?: number }, // usd values for amount in and out, and the fee value, logged for analytics
   allowedSlippage: Percent, // in bips
-  permitSignature: PermitSignature | undefined
+  permitSignature: PermitSignature | undefined,
+  privateSwap: Boolean
 ) {
   const deadline = useTransactionDeadline()
 
   const addTransaction = useTransactionAdder()
   const addOrder = useAddOrder()
   const { account, chainId } = useWeb3React()
+  
+  
 
   const uniswapXSwapCallback = useUniswapXSwapCallback({
     trade: isUniswapXTrade(trade) ? trade : undefined,
@@ -73,40 +94,56 @@ export function useSwapCallback(
     if (!trade) throw new Error('missing trade')
     if (!account || !chainId) throw new Error('wallet must be connected to swap')
 
+    // We create PXE client connected to the sandbox URL
+    // const pxe = createPXEClient(PXE_URL);
+
+    // // Wait for sandbox to be ready
+    // await waitForSandbox(pxe);
+
+    // const nodeInfo = await pxe.getNodeInfo();
+
+    // const accounts = await getSandboxAccountsWallets(pxe);
+    // const aliceWallet = accounts[0];
+
+    // const contract = await Contract.at(contractAddress, artifact, aliceWallet);
+    console.log("GM GM GM");
+
+    
     const result = await swapCallback()
 
-    const swapInfo: ExactInputSwapTransactionInfo | ExactOutputSwapTransactionInfo = {
-      type: TransactionType.SWAP,
-      inputCurrencyId: currencyId(trade.inputAmount.currency),
-      outputCurrencyId: currencyId(trade.outputAmount.currency),
-      isUniswapXOrder: result.type === TradeFillType.UniswapX,
-      ...(trade.tradeType === TradeType.EXACT_INPUT
-        ? {
-            tradeType: TradeType.EXACT_INPUT,
-            inputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
-            expectedOutputCurrencyAmountRaw: trade.postTaxOutputAmount.quotient.toString(),
-            minimumOutputCurrencyAmountRaw: trade.minimumAmountOut(allowedSlippage).quotient.toString(),
-          }
-        : {
-            tradeType: TradeType.EXACT_OUTPUT,
-            maximumInputCurrencyAmountRaw: trade.maximumAmountIn(allowedSlippage).quotient.toString(),
-            outputCurrencyAmountRaw: trade.postTaxOutputAmount.quotient.toString(),
-            expectedInputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
-          }),
-    }
+    // const swapInfo: ExactInputSwapTransactionInfo | ExactOutputSwapTransactionInfo = {
+    //   type: TransactionType.SWAP,
+    //   inputCurrencyId: currencyId(trade.inputAmount.currency),
+    //   outputCurrencyId: currencyId(trade.outputAmount.currency),
+    //   isUniswapXOrder: result.type === TradeFillType.UniswapX,
+    //   ...(trade.tradeType === TradeType.EXACT_INPUT
+    //     ? {
+    //         tradeType: TradeType.EXACT_INPUT,
+    //         inputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
+    //         expectedOutputCurrencyAmountRaw: trade.postTaxOutputAmount.quotient.toString(),
+    //         minimumOutputCurrencyAmountRaw: trade.minimumAmountOut(allowedSlippage).quotient.toString(),
+    //       }
+    //     : {
+    //         tradeType: TradeType.EXACT_OUTPUT,
+    //         maximumInputCurrencyAmountRaw: trade.maximumAmountIn(allowedSlippage).quotient.toString(),
+    //         outputCurrencyAmountRaw: trade.postTaxOutputAmount.quotient.toString(),
+    //         expectedInputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
+    //       }),
+    // }
 
-    if (result.type === TradeFillType.UniswapX) {
-      addOrder(
-        account,
-        result.response.orderHash,
-        chainId,
-        result.response.deadline,
-        swapInfo as UniswapXOrderDetails['swapInfo']
-      )
-    } else {
-      addTransaction(result.response, swapInfo, deadline?.toNumber())
-    }
+    // if (result.type === TradeFillType.UniswapX) {
+    //   addOrder(
+    //     account,
+    //     result.response.orderHash,
+    //     chainId,
+    //     result.response.deadline,
+    //     swapInfo as UniswapXOrderDetails['swapInfo']
+    //   )
+    // } else {
+    //   addTransaction(result.response, swapInfo, deadline?.toNumber())
+    // }
 
     return result
+
   }, [account, addOrder, addTransaction, allowedSlippage, chainId, deadline, swapCallback, trade])
 }

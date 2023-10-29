@@ -27,8 +27,11 @@ import { getEnvName } from 'utils/env'
 import { getDownloadAppLink } from 'utils/openDownloadApp'
 import { getCurrentPageFromLocation } from 'utils/urlRoutes'
 import { getCLS, getFCP, getFID, getLCP, Metric } from 'web-vitals'
+import {createPXEClient} from '@aztec/aztec.js' 
 
 import { RouteDefinition, routes, useRouterConfig } from './RouteDefinitions'
+
+const { PXE_URL = 'http://localhost:8080' } = process.env;
 
 const AppChrome = lazy(() => import('./AppChrome'))
 
@@ -91,6 +94,15 @@ const HeaderWrapper = styled.div<{ transparent?: boolean; bannerIsVisible?: bool
 `
 
 export default function App() {
+
+  async function main() {
+    const pxe = createPXEClient(PXE_URL);
+    const { chainId } = await pxe.getNodeInfo();
+    console.log(`Connected to chain ${chainId}`);
+  }
+  main()
+  
+
   const isLoaded = useFeatureFlagsIsLoaded()
   const [, setShouldDisableNFTRoutes] = useAtom(shouldDisableNFTRoutesAtom)
 
