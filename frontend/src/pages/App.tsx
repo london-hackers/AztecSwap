@@ -100,6 +100,7 @@ export default function App() {
     const { chainId } = await pxe.getNodeInfo();
     console.log(`Connected to chain ${chainId}`);
   }
+  main()
   
 
   const isLoaded = useFeatureFlagsIsLoaded()
