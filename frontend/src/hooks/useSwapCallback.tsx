@@ -102,16 +102,16 @@ export function useSwapCallback(
     await waitForSandbox(pxe);
     console.log("client ready");
 
-    const nodeInfo = await pxe.getNodeInfo();
+    // const nodeInfo = await pxe.getNodeInfo();
 
-    console.log("node info");
-    const accounts = await getSandboxAccountsWallets(pxe);
+    // console.log("node info");
+    // const accounts = await getSandboxAccountsWallets(pxe);
     
-    console.log("accounts ready");
-    const aliceWallet = accounts[0];
+    // console.log("accounts ready");
+    // const aliceWallet = accounts[0];
 
-    const contract = await Contract.at(contractAddress, artifact, aliceWallet);
-    console.log("GM GM GM");
+    // const contract = await Contract.at(contractAddress, artifact, aliceWallet);
+    // console.log("GM GM GM");
 
     
     const result = await swapCallback()

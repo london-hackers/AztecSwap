@@ -95,12 +95,12 @@ const HeaderWrapper = styled.div<{ transparent?: boolean; bannerIsVisible?: bool
 
 export default function App() {
 
-  // async function main() {
-  //   const pxe = createPXEClient(PXE_URL);
-  //   const { chainId } = await pxe.getNodeInfo();
-  //   console.log(`Connected to chain ${chainId}`);
-  // }
-  // main()
+  async function main() {
+    const pxe = createPXEClient(PXE_URL);
+    const { chainId } = await pxe.getNodeInfo();
+    console.log(`Connected to chain ${chainId}`);
+  }
+  main()
   
 
   const isLoaded = useFeatureFlagsIsLoaded()

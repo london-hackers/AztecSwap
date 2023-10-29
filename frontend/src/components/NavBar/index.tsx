@@ -23,7 +23,8 @@ import { ChainSelector } from './ChainSelector'
 import { SearchBar } from './SearchBar'
 import * as styles from './style.css'
 import blackLogo from './final_logo.png'
-import whiteLogo from './white-logo.jpg'
+// import whiteLogo from './white-logo.jpg'
+import whiteLogo from './white-logo-removebg-preview.png'
 import { useIsDarkMode } from './../../theme/components/ThemeToggle'
 
 const Nav = styled.nav`
@@ -107,7 +108,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
         <Box display="flex" height="full" flexWrap="nowrap">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
-              <img src={logo}  height="50px"></img>
+              <img src={logo}  height="100px"></img>
             </Box>
             {!isNftPage && (
               <Box display={{ sm: 'flex', lg: 'none' }}>
