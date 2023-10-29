@@ -297,6 +297,7 @@
     "statsig-react": "^1.22.0",
     "styled-components": "^5.3.5",
     "tiny-invariant": "^1.2.0",
+    "tty-browserify": "^0.0.1",
     "ua-parser-js": "^1.0.35",
     "use-resize-observer": "^9.1.0",
     "uuid": "^8.3.2",
