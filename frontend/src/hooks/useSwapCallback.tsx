@@ -36,8 +36,8 @@ import artifact from "../artifacts/Uniswap.json";
 
 
 import { format } from 'util';
-const contractAddress = '0x20349890f543228a00a5e0e08084dba0de4ea05268977b6ef9ff1d210b1311ad';
-const { PXE_URL = 'http://localhost:8080' } = process.env;
+const contractAddress = '0x2d0d5e2b6cb392080c65c01712b834fa5bd7153c30a445cb068e4e46bbf110b1';
+const { PXE_URL = 'http://localhost:8079' } = process.env;
 
 export type SwapResult = Awaited<ReturnType<ReturnType<typeof useSwapCallback>>>
 
@@ -95,17 +95,22 @@ export function useSwapCallback(
     if (!account || !chainId) throw new Error('wallet must be connected to swap')
 
     // We create PXE client connected to the sandbox URL
-    // const pxe = createPXEClient(PXE_URL);
+    const pxe = createPXEClient(PXE_URL);
+    console.log("client created");
 
-    // // Wait for sandbox to be ready
-    // await waitForSandbox(pxe);
+    // Wait for sandbox to be ready
+    await waitForSandbox(pxe);
+    console.log("client ready");
 
-    // const nodeInfo = await pxe.getNodeInfo();
+    const nodeInfo = await pxe.getNodeInfo();
 
-    // const accounts = await getSandboxAccountsWallets(pxe);
-    // const aliceWallet = accounts[0];
+    console.log("node info");
+    const accounts = await getSandboxAccountsWallets(pxe);
+    
+    console.log("accounts ready");
+    const aliceWallet = accounts[0];
 
-    // const contract = await Contract.at(contractAddress, artifact, aliceWallet);
+    const contract = await Contract.at(contractAddress, artifact, aliceWallet);
     console.log("GM GM GM");
 
     

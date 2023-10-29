@@ -69,21 +69,21 @@ import { useIsDarkMode } from '../../theme/components/ThemeToggle'
 import { OutputTaxTooltipBody } from './TaxTooltipBody'
 import { UniswapXOptIn } from './UniswapXOptIn'
 import Toggle from 'components/Toggle'
-import {
-  Contract,
-  Fr,
-  NotePreimage,
-  PXE,
-  computeMessageSecretHash,
-  createDebugLogger,
-  createPXEClient,
-  getSandboxAccountsWallets,
-  getSchnorrAccount,
-  waitForSandbox,
-} from '@aztec/aztec.js';
-import { format } from 'util';
+// import {
+//   Contract,
+//   Fr,
+//   NotePreimage,
+//   PXE,
+//   computeMessageSecretHash,
+//   createDebugLogger,
+//   createPXEClient,
+//   getSandboxAccountsWallets,
+//   getSchnorrAccount,
+//   waitForSandbox,
+// } from '@aztec/aztec.js';
+// import { format } from 'util';
 
-const { PXE_URL = 'http://localhost:8080' } = process.env;
+// const { PXE_URL = 'http://localhost:8080' } = process.env;
 
 
 export const ArrowContainer = styled.div`
