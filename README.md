@@ -4,7 +4,7 @@ AztecSwap allows someone with funds on Aztec (L2) to to swap using L1 Uniswap an
 
 ⚙️ Built using NextJS and Noir.
 
-The flow of the swapping dapp is:
+## User flow
 - 🔥 **Withdraw**: The user withdraws their “input” assets to L1 (i.e. burn them on L2 and create a L2 to L1 message to withdraw)
 - 📩 **Message**: An L2 → L1 message to swap on L1 is created
 - ♻️ **Swap**: On L1, the user gets their input tokens, consumes the swap message, and executes the swap
@@ -59,10 +59,12 @@ yarn start
 The interface should automatically open. If it does not, navigate to [http://localhost:3000].
 
 ## Deployments
-We deployed the L1 contracts to Goerli
+Deployed L1 contracts on Goerli
 - [PortalERC20](https://goerli.etherscan.io/address/0x9CD811F498029D8760e6dA4A31A4B08b77154A20)
 - [TokenPortal](https://goerli.etherscan.io/address/0x6DBD391Ff3A82079E4188c517452a8d3146b7Abf)
-- [UniswapPortal](https://goerli.etherscan.io/address/0x5E60F6BFa0e1B52b1bf270cd41b151642Fc4Da65)
+- [UniswapPortal](https://goerli.etherscan.io/address/0x5E60F6BFa0e1B52b1bf270cd41b151642Fc4Da65
+
+Aztec L2 contracts are deployed locally on the sandbox
 
 ## Team
 
