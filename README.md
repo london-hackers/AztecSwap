@@ -14,6 +14,11 @@ AztecSwap allows someone with funds on Aztec (L2) to to swap using L1 Uniswap an
 
 ![diagram](https://docs.aztec.network/assets/ideal-img/uniswap_flow.38b8805.1030.png)
 
+## dApp screenshots
+
+![public swap](https://github.com/london-hackers/AztecSwap/blob/996348439dd0fb4ac9c35be136b8abb584dd72b1/screenshots/swap_public.png)
+![private swap](https://github.com/london-hackers/AztecSwap/blob/996348439dd0fb4ac9c35be136b8abb584dd72b1/screenshots/swap_private.png)
+
 ## Quickstart
 
 To get started with AztecSwap, follow the steps below:
